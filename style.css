@@ -405,7 +405,7 @@ i.fa-code {
     height: 15px;
     background-color: #d8befc;
     border-radius: 50%;
-    margin: 5px 0 5px 15px;
+    margin: 10px 0 5px 15px;
     position: relative;
     cursor: pointer;
     top: calc(50% - 100px );
@@ -430,7 +430,7 @@ i.fa-code {
     height: 15px;
     background-color: #a364fe;
     border-radius: 50%;
-    margin: 5px 0 5px 0;
+    margin: 10px 0 10px 0;
     position: relative;
     cursor: pointer;
     top: calc(50% - 50px );
@@ -760,4 +760,94 @@ textarea:focus {
 .resource {
 	text-align: center;
 	margin: 5px;
+}
+
+/*****************/
+/* Tablet styles */
+/*****************/
+
+@media screen and (max-width: 1024px) {
+	
+	.header-asoc-content {
+		width: 90%;
+	}
+	
+	.blog-content-wrapper {
+		flex-direction: column;
+	}
+	
+	.blog-content-paragraph {
+		margin: 8px 0 0 0;
+	}
+	
+	.carousel-wrapper {
+		flex-direction: column;
+		margin-bottom: 0;
+		padding-bottom: 10px;
+	}
+	
+	.services-image-wrapper,
+	.services-description-wrapper {
+		width: 100%;
+	}
+	
+	.demo-btn,
+	.purchase-btn {
+		display: inline-block;
+	}
+	
+	.demo-btn {
+		margin: 0 15px 0 0;
+	}
+	
+	.purchase-btn {
+		margin: 10px auto 0 auto;
+	}
+	
+	.carousel-dots-wrapper {
+		display: flex;
+		margin: 25px auto 0 auto;
+	}
+	
+	.contact-wrapper {
+		flex-direction: column-reverse;
+		padding: 40px 20% 30px 20%;
+	}
+	
+	.address-soc-logos-wrapper {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+	
+	.address-wrapper {
+		width: 50%;
+		border: none;
+	}
+	
+	.address-wrapper p {
+		transform: translateX(-40%);
+	}
+	
+	.soc-logos-wrapper {
+		width: 20%;
+		padding: 15px 5px;
+		margin-right: 10px;
+		border: none;
+	}
+	
+	form {
+		width: 100%;
+		margin: 40px auto 0 auto;
+		padding: 0;
+	}
+	
+}
+
+/*****************/
+/* Mobile styles */
+/*****************/
+
+@media screen and (max-width: 639px) {
+	
 }
