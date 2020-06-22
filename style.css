@@ -54,7 +54,7 @@ hr {
     left: 0;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 5;
 }
 
@@ -256,9 +256,17 @@ i.fa-code {
     padding: 30px 10% 30px 10%;
     background-color: var(--accent-color-purple);
     display: flex;
+		position: relative;
+		overflow: hidden;
 }
 
 .team-person-wrapper {
+		display: flex;
+/*		position: absolute;*/
+		animation: card-in 1.5s linear forwards;
+}
+
+.team-person-text {
     margin: 0 15px;
 }
 
@@ -291,6 +299,24 @@ i.fa-code {
     position: relative;
     top: -20px;
     right: -20px;
+}
+
+@keyframes card-out {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-110%);
+	}
+}
+
+@keyframes card-in {
+	0% {
+		transform: translateY(110%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
 }
 
 /******************/
@@ -762,6 +788,17 @@ textarea:focus {
 	margin: 5px;
 }
 
+.hide {
+	display: none;
+}
+
+.team-card-out {
+		position: absolute;
+		width: 80%;
+		padding: 0 0 0 15px;
+		animation: card-out 1.5s linear forwards;
+}
+
 /*****************/
 /* Tablet styles */
 /*****************/
@@ -850,4 +887,123 @@ textarea:focus {
 
 @media screen and (max-width: 639px) {
 	
+	.hamburger {
+		position: fixed;
+		height: 5px;
+		width: 50px;
+		background: #fff;
+		right: 15vw;
+		top: 35px;
+	}
+	
+	.hamburger::before,
+	.hamburger::after {
+		content: " ";
+		position: absolute;
+		height: 5px;
+		width: 50px;
+		background: #fff;
+	}
+	
+	.hamburger::before {
+		top: -12px;
+		border-radius: 5px 5px 0 0;
+	}
+	
+	.hamburger::after {
+		top: 12px;
+		border-radius: 0 0 5px 5px;
+	}
+	
+	.nav-items-wrapper {
+		display: none;
+	}
+	
+	.nav-open { /* JS sets this class on nav-items-wrapper */
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		top: 60px;
+		left: 30vw;
+		background-image: linear-gradient(45deg, #f84afb, #9719f6);;
+		height: 150px;
+		width: 150px;
+		border-radius: 5px;
+	}
+	
+	.nav-item {
+		align-self: flex-end;
+		margin: 0 15vw 10px 0;
+	}
+	
+	
+	.about-content-wrapper {
+		flex-direction: column;
+	}
+	
+	.about-content-wrapper li {
+		width: 100%;
+	}
+	.about-cntnt {
+		margin: 5px 0 0 0;
+	}
+	
+	.blog-charts-wrapper {
+		flex-flow: wrap;
+	}
+	
+	.chart-wrapper {
+		width: 40%;
+		margin: 0 auto;
+	}
+	
+	.team-carousel-wrapper {
+		flex-direction: column;
+		flex-flow: wrap;
+	}
+	
+	.team-carousel-dots-wrapper {
+		display: flex;
+		margin: 0 auto;
+	}
+	
+	.team-dot {
+		position: static;
+		margin: 0 7px 10px 7px;
+	}
+	
+	.team-person-image-wrapper {
+		margin: 25px auto 0 auto;
+		height: 250px;
+	}
+	
+	.service-header {
+		margin: 0 0 10px 0;
+	}
+	
+	.price-tag {
+		left: 50%;
+		transform: translateX(-50%);
+		margin: 0 0 10px 0;
+		display: block;
+		width: 50px;
+	}
+	
+	.price-tag::before {
+    border: transparent;
+	}
+	
+	.contact-wrapper {
+		padding: 20px 10% 20px 10%; 
+	}
+	
+	.address-soc-logos-wrapper {
+		flex-flow: column;
+	}
+	
+	.address-wrapper,
+	.soc-logos-wrapper {
+		width: 100%;
+		margin: 0;
+	}
 }

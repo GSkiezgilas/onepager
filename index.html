@@ -15,12 +15,13 @@
 	<nav class="nav-wrapper">
 			<div class="exo-logo-wrapper"><a href="#home">EXO</a></div>
 			<ul class="nav-items-wrapper">
-					<li class="nav-item"><a class="nav-link" href="#home">HOME</a></li>
-					<li class="nav-item"><a class="nav-link" href="#about">ABOUT</a></li>
-					<li class="nav-item"><a class="nav-link" href="#services">SERVICES</a></li>
-					<li class="nav-item"><a class="nav-link" href="#feedback">FEEDBACK</a></li>
-					<li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+					<li class="nav-item js-nav-1"><a class="nav-link" href="#home">HOME</a></li>
+					<li class="nav-item js-nav-2"><a class="nav-link" href="#about">ABOUT</a></li>
+					<li class="nav-item js-nav-3"><a class="nav-link" href="#services">SERVICES</a></li>
+					<li class="nav-item js-nav-4"><a class="nav-link" href="#feedback">FEEDBACK</a></li>
+					<li class="nav-item js-nav-5"><a class="nav-link" href="#contact">CONTACT</a></li>
 			</ul>
+			<div class="hamburger" onclick="navOpen()"></div>
 	</nav>
 	<main>
 			<div id="home" class="home-wrapper">
@@ -105,18 +106,50 @@
 							<hr>
 							<div class="team-carousel-wrapper">
 									<div class="team-carousel-dots-wrapper">
-											<div class="team-dot"></div>
+											<div class="team-dot team-dot-active"></div>
 											<div class="team-dot"></div>
 											<div class="team-dot"></div>
 											<div class="team-dot"></div>
 									</div>
 									<div class="team-person-wrapper">
-											<p class="team-name">Mike Smith</p>
-											<p class="team-job-position">Co-owner</p>
-											<p class="team-content">Incurreret ubi deserunt eu sed nisi arbitrantur, varias nescius a transferrem non enim an incididunt. Proident noster do singulis sempiternum. Fugiat arbitror occaecat, an dolore quorum veniam proident, litteris fugiat ex nostrud graviterque, et nulla transferrem.</p>
+											<div class="team-person-text">
+													<p class="team-name">Mike Smith</p>
+													<p class="team-job-position">Co-owner</p>
+													<p class="team-content">Incurreret ubi deserunt eu sed nisi arbitrantur, varias necius a transferrem non enim an incididunt. Proident noster do singulis sempiternum. Fugiat arbitror occaecat, an dolore quorum veniam proident, litteris fugiat ex nostrud graviterque, et nulla transferrem.</p>
+											</div>
+											<div class="team-person-image-wrapper">
+													<img src="images/team/Co-Owner.jpg" alt="Co-owner Mike Smith">
+											</div>
 									</div>
-									<div class="team-person-image-wrapper">
-											<img src="images/team/Co-Owner.jpg" alt="Co-owner Mike Smith">
+									<div class="team-person-wrapper hide">
+											<div class="team-person-text">
+													<p class="team-name">Oliver Wilson</p>
+													<p class="team-job-position">Co-owner</p>
+													<p class="team-content">Expetendis aut anim, eram in nescius et enim ab amet se te culpa ullamco, in anim de summis. Consequat dolor occaecat te non nam domesticarum, eram et offendit ubi culpa ex veniam senserit iis imitarentur e se non minim quae tamen non hic tamen te legam et nisi expetendis a despicationes id sed malis fabulas despicationes.</p>
+											</div>
+											<div class="team-person-image-wrapper">
+													<img src="images/team/Co-Owner2.jpg" alt="Co-owner Oliver Wilson">
+											</div>
+									</div>
+									<div class="team-person-wrapper hide">
+											<div class="team-person-text">
+													<p class="team-name">Amelia Jones</p>
+													<p class="team-job-position">Designer</p>
+													<p class="team-content">E veniam iudicem, lorem praesentibus quamquam minim laboris ut iis fabulas ad admodum est o esse imitarentur. Offendit sed nostrud, ea quis probant, illum si te minim voluptate, aliquip est probant, dolore eu offendit ab quem in excepteur sed proident, velit litteris ad arbitrantur, multos occaecat an familiaritatem.</p>
+											</div>
+											<div class="team-person-image-wrapper">
+													<img src="images/team/Designer.jpg" alt="Designer Amelia Jones">
+											</div>
+									</div>
+									<div class="team-person-wrapper hide">
+											<div class="team-person-text">
+													<p class="team-name">Lincoln Anderson</p>
+													<p class="team-job-position">Developer</p>
+													<p class="team-content">Si ullamco o sed lorem noster fugiat incididunt, esse excepteur et minim culpa est ab arbitror actavissent ut ab tamen litteris eiusmod hic magna e expetendis. Do et veniam offendit. Ne nam quae enim irure qui mentitum labore in eiusmod despicationes. Eram fabulas praesentibus, ne dolor eiusmod doctrina.</p>
+											</div>
+											<div class="team-person-image-wrapper">
+													<img src="images/team/Developer.jpg" alt="Developer Lincoln Anderson">
+											</div>											
 									</div>
 							</div>
 					</div>
@@ -268,5 +301,6 @@
   		</div>
   	</div>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
