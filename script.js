@@ -73,3 +73,86 @@ function manualSwitchCards(index) {
 }
 
 	teamCardsChanger = setInterval(showTeamCards, 1000 * 20);
+
+/********************/
+/* Service carousel */
+/********************/
+
+let nextServiceCardIndex = 1;
+let previousServiceCardIndex = nextServiceCardIndex - 1;
+const serviceCards = document.getElementsByClassName('services-card');
+const serviceDots = document.getElementsByClassName('service-dot');
+let serviceCardsChanger; 
+
+function serviceCardsIndexReseter() {
+	if (nextServiceCardIndex > serviceCards.length - 1) {
+		nextServiceCardIndex = 0;
+	}
+	if (previousServiceCardIndex < 0) {
+		previousServiceCardIndex = serviceCards.length - 1;
+	} else if (previousServiceCardIndex > serviceCards.length - 1) {
+		previousServiceCardIndex = 0;
+	}
+}
+
+function showServiceCards() {	
+	serviceCardsIndexReseter();
+	serviceCards[previousServiceCardIndex].classList.add('hide');
+	serviceDots[previousServiceCardIndex].classList.remove('service-dot-active');
+	serviceCards[nextServiceCardIndex].classList.remove('hide');
+	serviceDots[nextServiceCardIndex].classList.add('service-dot-active');
+	nextServiceCardIndex ++;
+	previousServiceCardIndex ++;
+}
+
+function manualSwitchServiceCards(index) {
+	let currentServiceCardIndex = index;
+	
+	clearInterval(serviceCardsChanger);
+	nextServiceCardIndex = index + 1;
+	serviceCardsIndexReseter();
+	serviceCards[previousServiceCardIndex].classList.add('hide');
+	serviceDots[previousServiceCardIndex].classList.remove('service-dot-active');
+	previousServiceCardIndex = index;
+	serviceCards[currentServiceCardIndex].classList.remove('hide');
+	serviceDots[currentServiceCardIndex].classList.add('service-dot-active');
+	serviceCardsChanger = setInterval(showServiceCards, 1000 * 20);	
+}
+
+	serviceCardsChanger = setInterval(showServiceCards, 1000 * 20);
+
+/*******************/
+/* Service Ratings */
+/*******************/
+
+const starsWrapper = document.getElementsByClassName('star-wrapper');
+let stars;
+
+function addRating () {
+	let currentRating = this.parentNode.parentNode.getElementsByClassName('rating-count')[0].innerHTML;
+	let updatedRating = Number(currentRating) + 1;
+	
+	this.parentNode.parentNode.getElementsByClassName('rating-count')[0].innerHTML = updatedRating;
+	this.classList.add('star-rated');
+  this.parentNode.classList.add('rated');
+		 
+	for (let i = 0; i < this.parentNode.children.length; i++) {
+		this.parentNode.children[i].removeEventListener('click', addRating);
+		this.parentNode.children[i].classList.remove('star-hover');
+	}
+	
+}
+
+function starEventHandler (starsWrapper) {
+  stars = starsWrapper.getElementsByClassName('fa-star');
+	
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].addEventListener('click', addRating); 
+  }
+}
+
+for (let i = 0; i < starsWrapper.length; i++) {
+  if (starsWrapper[i].classList.contains('rated') !== true) {
+    starEventHandler(starsWrapper[i]);
+  }
+}
