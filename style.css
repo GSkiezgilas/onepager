@@ -491,7 +491,7 @@ i.fa-code {
     background-color: #fafafa;
 }
 
-.feedback-person-wrapper {
+.feedback-card {
     display: grid;
     grid-template-columns: 15px 1fr 120px;
     grid-template-rows: auto;
@@ -499,6 +499,7 @@ i.fa-code {
         "dots name picture"
         "dots job picture"
         "dots feedback feedback";
+		animation: fade-in 3s;
 }
 
 .feedback-name,

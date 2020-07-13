@@ -140,7 +140,6 @@ function addRating () {
 		this.parentNode.children[i].removeEventListener('click', addRating);
 		this.parentNode.children[i].classList.remove('star-hover');
 	}
-	
 }
 
 function starEventHandler (starsWrapper) {
@@ -156,3 +155,50 @@ for (let i = 0; i < starsWrapper.length; i++) {
     starEventHandler(starsWrapper[i]);
   }
 }
+
+/*********************/
+/* Feedback carousel */
+/*********************/
+
+let nextFeedbackCardIndex = 1;
+let previousFeedbackCardIndex = nextFeedbackCardIndex - 1;
+const feedbackCards = document.getElementsByClassName('feedback-card');
+const feedbackDots = document.getElementsByClassName('feedback-dot');
+let feedbackCardsChanger; 
+
+function feedbackCardsIndexReseter() {
+	if (nextFeedbackCardIndex > feedbackCards.length - 1) {
+		nextFeedbackCardIndex = 0;
+	}
+	if (previousFeedbackCardIndex < 0) {
+		previousFeedbackCardIndex = feedbackCards.length - 1;
+	} else if (previousFeedbackCardIndex > feedbackCards.length - 1) {
+		previousFeedbackCardIndex = 0;
+	}
+}
+
+function showFeedbackCards() {	
+	feedbackCardsIndexReseter();
+	feedbackCards[previousFeedbackCardIndex].classList.add('hide');
+	feedbackDots[previousFeedbackCardIndex].classList.remove('feedback-dot-active');
+	feedbackCards[nextFeedbackCardIndex].classList.remove('hide');
+	feedbackDots[nextFeedbackCardIndex].classList.add('feedback-dot-active');
+	nextFeedbackCardIndex ++;
+	previousFeedbackCardIndex ++;
+}
+
+function manualSwitchFeedbackCards(index) {
+	let currentFeedbackCardIndex = index;
+	
+	clearInterval(feedbackCardsChanger);
+	nextFeedbackCardIndex = index + 1;
+	feedbackCardsIndexReseter();
+	feedbackCards[previousFeedbackCardIndex].classList.add('hide');
+	feedbackDots[previousFeedbackCardIndex].classList.remove('feedback-dot-active');
+	previousFeedbackCardIndex = index;
+	feedbackCards[currentFeedbackCardIndex].classList.remove('hide');
+	feedbackDots[currentFeedbackCardIndex].classList.add('feedback-dot-active');
+	feedbackCardsChanger = setInterval(showFeedbackCards, 1000 * 20);	
+}
+
+	feedbackCardsChanger = setInterval(showFeedbackCards, 1000 * 20);
