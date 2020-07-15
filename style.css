@@ -262,7 +262,6 @@ i.fa-code {
 
 .team-person-wrapper {
 		display: flex;
-/*		position: absolute;*/
 		animation: card-in 1.5s linear forwards;
 }
 
@@ -643,15 +642,40 @@ svg {
     background-color: #000;
     margin: 30px 0 0 0;
     padding: 30px 10%;
+		overflow: hidden;
+		position: relative;
 }
 
 .client-logo-main-wrapper {
     display: flex;
     justify-content: space-around;
+		animation: card-right-in 3s linear forwards;
+}
+
+@keyframes card-right-in {
+	0% {
+		transform: translateX(115%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes card-left-out {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-115%);
+	}
 }
 
 .client-logo-wrapper {
     max-width: 90%;
+}
+
+.client-logo-wrapper:nth-child(2) {
+		margin: 0 15px;
 }
 
 .client-logo-wrapper img {
@@ -672,8 +696,8 @@ svg {
     cursor: pointer;
 }
 
-.client-logo-dot:active {
-    background-color: #909090;
+.client-logo-dot-active {
+    background-color: #fafafa;
 }
 
 /*************************/
@@ -823,6 +847,12 @@ textarea:focus {
 		animation: card-out 1.5s linear forwards;
 }
 
+.logo-card-out {
+		position: absolute;
+		width: 80%;
+		top: 30px;
+		animation: card-left-out 3s linear forwards;
+
 /*****************/
 /* Tablet styles */
 /*****************/
@@ -907,7 +937,6 @@ textarea:focus {
 		margin: 40px auto 0 auto;
 		padding: 0;
 	}
-	
 }
 
 /*****************/

@@ -202,3 +202,50 @@ function manualSwitchFeedbackCards(index) {
 }
 
 	feedbackCardsChanger = setInterval(showFeedbackCards, 1000 * 20);
+
+/************************/
+/* Client logo carousel */
+/************************/
+
+let nextLogoCardIndex = 1;
+let previousLogoCardIndex = nextLogoCardIndex - 1;
+const logoCards = document.getElementsByClassName('client-logo-main-wrapper');
+const logoDots = document.getElementsByClassName('client-logo-dot');
+let logoCardsChanger; 
+
+function logoCardsIndexReseter() {
+	if (nextLogoCardIndex > logoCards.length - 1) {
+		nextLogoCardIndex = 0;
+	}
+	if (previousLogoCardIndex < 0) {
+		previousLogoCardIndex = logoCards.length - 1;
+	} else if (previousLogoCardIndex > logoCards.length - 1) {
+		previousLogoCardIndex = 0;
+	}
+}
+
+function showLogoCards() {	
+	logoCardsIndexReseter();
+	logoCards[previousLogoCardIndex].classList.add('logo-card-out');
+	logoDots[previousLogoCardIndex].classList.remove('client-logo-dot-active');
+	logoCards[nextLogoCardIndex].classList.remove('hide', 'logo-card-out');
+	logoDots[nextLogoCardIndex].classList.add('client-logo-dot-active');
+	nextLogoCardIndex ++;
+	previousLogoCardIndex ++;
+}
+
+function manualSwitchLogoCards(index) {
+	let currentLogoCardIndex = index;
+	
+	clearInterval(logoCardsChanger);
+	nextLogoCardIndex = index + 1;
+	logoCardsIndexReseter();
+	logoCards[previousLogoCardIndex].classList.add('logo-card-out');
+	logoDots[previousLogoCardIndex].classList.remove('client-logo-dot-active');
+	previousLogoCardIndex = index;
+	logoCards[currentLogoCardIndex].classList.remove('hide', 'logo-card-out');
+	logoDots[currentLogoCardIndex].classList.add('client-logo-dot-active');
+	logoCardsChanger = setInterval(showLogoCards, 1000 * 7);	
+}
+
+	logoCardsChanger = setInterval(showLogoCards, 1000 * 7);
