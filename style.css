@@ -654,7 +654,7 @@ svg {
 
 @keyframes card-right-in {
 	0% {
-		transform: translateX(115%);
+		transform: translateX(120%);
 	}
 	100% {
 		transform: translateX(0%);
@@ -666,7 +666,7 @@ svg {
 		transform: translateX(0%);
 	}
 	100% {
-		transform: translateX(-115%);
+		transform: translateX(-120%);
 	}
 }
 
@@ -852,6 +852,7 @@ textarea:focus {
 		width: 80%;
 		top: 30px;
 		animation: card-left-out 3s linear forwards;
+}
 
 /*****************/
 /* Tablet styles */
@@ -1028,6 +1029,16 @@ textarea:focus {
 	.team-dot {
 		position: static;
 		margin: 0 7px 10px 7px;
+	}
+	
+	.team-person-wrapper {
+		flex-direction: column;
+		animation: card-right-in 2s linear forwards;
+	}
+	
+	.team-card-out {
+		padding: 25px 0;
+		animation: card-left-out 2s linear forwards;
 	}
 	
 	.team-person-image-wrapper {
